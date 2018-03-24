@@ -1,0 +1,16 @@
+{{#if projects}}
+    {{#each projects}}
+        <div class="service">
+            <div class="service-img">
+                <img src="{{imageURL}}" alt="">
+            </div>
+            <div class="service-desc">
+                <h5>{{title}}</h5>
+                <p>{{description}}</p>
+                <a href="{{repoURL}}" class="call-to-action" target="_blank">View Project</a>
+            </div>
+        </div>
+    {{/each}}
+{{else}}
+    <h1 id="no-projects-text">No projects submitted at this time</h1>
+{{/if}} 

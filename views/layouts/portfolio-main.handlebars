@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luis Cervantes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header id="header">
+
+        <div class="container">
+
+            <div class="header-backdrop-container">
+
+                <div class="header-backdrop"></div>
+
+                <h1 class="logo">Luis Cervantes</h1>
+
+                <h2 class="logo-caption">Full stack web developer.</h2>
+
+            </div>
+
+        </div>
+
+        <nav>
+            <div id="nav">
+                <div class="container">
+                    <ul>
+                        <li><a href="#" id="nav-portfolio" class="selected">Portfolio</a></li>
+                        <li><a href="#" id="nav-about">About</a></li>
+                        <li><a href="#" id="nav-contact">Contact</a></li>
+                        <li><a href="/admin">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <section id="services">
+
+        <div class="container">
+
+            <h1>Portfolio</h1>
+
+            <h2>Here are few examples of my work - feel free to explore!</h2>
+
+        </div>
+
+        <div class="services-container">
+            <div class="container">
+                <div class="services-grid">
+
+                    {{{body}}}
+                    
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="container">
+
+
+
+
+
+        <section id="about">
+
+            <h1>About</h1>
+
+            <p>I was born into a family of eight siblings in Mexico City. My parents taught me from a very young age the importance of an education. Although my parents lacked the opportunities to attain a higher education, they were respected in the neighborhood due to their hard work and devotion. Despite their diligence, they would not meet the family's need in Mexico, so we moved to California.</p>
+            <p>My first job in the United States was a migrant worker in the fields of California. I help my parents pick grapes, almonds, and variuos kinds of vegetables. I never imagined that I would one day work in the in the USDA headquarters in Washington, D.C. Proud to have had that early experience in agriculture, I value the infortance or monitoring issues with Consultative Committees on Agriculture (CCA), including Peru, Colombia, Uruguay and Argentina. In 2004, I received a USDA Honor Award for this work.</p>
+            <p>Before coming to the USDA, I received a B.A. in Political Science at California State University, and an M.A. in International Commerce and Policy at George Mason University, I also earned an MBA in Public Administration through the USDA Public Service Scholarship Program at Johns Hopkins University.</p>
+            <p>Clearly, my life experience have been stepping-stones. My journey every day for me represents a set of challenges. Today, I am deternined to have another challenge and decided to apply for the George Washington University Boot Camp.</p>
+
+        </section>
+
+        <section id="contact">
+
+            <h1>Contact</h1>
+            
+            <form action="">
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+                <label for="message">Message:</label>
+                <textarea name="" id="message" rows="4"></textarea>
+                <br>
+                <div id="success"></div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
+                </div>
+            </form>
+
+        </section>
+
+    </div>
+
+    <footer>
+
+        <p>Herndon, VA</p>
+        <p>Copyright &copy; 2018</p>
+        <p>Contact Me: <a href="mailto:lcervant@hotmail.com">lcervant@hotmail.com</a></p>
+<div class="social-links">
+                        <a href="https://github.com/lcervant2">
+                            <img src="assets/img/git_blue.png"/>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/">
+                            <img src="assets/img/in_blue.png"/>
+                        </a>
+                        <a href="https://www.facebook.com/">
+                            <img src="assets/img/face_blue.png"/>
+                        </a>
+                    </div>
+    </footer>
+
+    <script>
+
+      var cutoff = $("#nav").offset().top;
+
+      $("#nav-portfolio").click(function() {
+        $('html, body').animate({
+          scrollTop: 0
+        }, 500);
+      });
+
+      $("#nav-about").click(function() {
+        $('html, body').animate({
+          scrollTop: $("#about").offset().top - 80
+        }, 500);
+      });
+
+      $("#nav-contact").click(function() {
+        $('html, body').animate({
+          scrollTop: $("#contact").offset().top - 80
+        }, 500);
+      });
+
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll > cutoff) {
+          $("#nav").addClass("fix-nav");
+        } else {
+          $("#nav").removeClass("fix-nav");
+        }
+
+        if (scroll + $(window).height() / 2 > $("#contact").offset().top) {
+          $("#nav-portfolio").removeClass("selected");
+          $("#nav-about").removeClass("selected");
+          $("#nav-contact").addClass("selected");
+        } else if (scroll + $(window).height() / 2 > $("#about").offset().top) {
+          $("#nav-portfolio").removeClass("selected");
+          $("#nav-about").addClass("selected");
+          $("#nav-contact").removeClass("selected");
+        } else {
+          $("#nav-portfolio").addClass("selected");
+          $("#nav-about").removeClass("selected");
+          $("#nav-contact").removeClass("selected");
+        }
+      });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+<a href="/admin/create"><button style="width: 200px; margin-bottom: 20px" type="submit" class="btn btn-primary btn-xl">Create New Project</button></a>
+
+
+{{#if projects}}
+    {{#each projects}}
+        <h1>{{title}}</h1>
+        <h1>{{description}}</h1>
+        <a href="/admin/edit"><button style="width: 150px; margin-bottom: 20px; display: inline" type="submit"  style="display: inline"  class="btn btn-primary btn-xl">Edit</button></a>
+        <a href="/admin/delete"><button style="width: 150px; margin-bottom: 20px; display: inline" type="submit" style="display: inline" class="btn btn-primary btn-xl">Delete</button></a>
+    {{/each}}
+{{else}}
+    <h1>There are no projects at this time</h1>
+{{/if}}

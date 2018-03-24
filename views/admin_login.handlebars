@@ -1,0 +1,26 @@
+<section id="login">
+
+    <div class="container">
+
+        <h1 class="align-center">Admin Login&nbsp;&nbsp;&nbsp;<i class="fas fa-lock"></i></h1>
+
+        <form action="/admin/login" method="POST">
+            {{#if message}}
+                <h1 class="text-danger">{{message}}</h1>
+            {{/if}}
+
+            <label for="username">Username:</label>
+            <input name="username" type="text" id="username">
+
+            <label for="password">Password:</label>
+            <input name="password" type="password" id="password">
+
+            <br>
+
+            <button type="submit" class="btn btn-primary btn-xl" id="loginButton">Login</button>
+
+        </form>
+
+    </div>
+
+</section>
