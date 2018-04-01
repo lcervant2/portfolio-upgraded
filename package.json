@@ -23,7 +23,7 @@
     "sequelize": "^4.37.1",
     "sequelize-cli": "^4.0.0"
   },
-    "engines": {
+  "engines": {
     "node": "6.9.5"
   }
 }

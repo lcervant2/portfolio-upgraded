@@ -10,7 +10,7 @@ router.get("/", function(req, res) {
       layout: "portfolio-main", //specify which layout to use
       projects: result //bring in array
     }
-    res.render("portfolio_home", hbsData); //render template, pass data
+    res.render("portfolio_home", hbsData); //render handlebars template, pass in project data
   });
 });
 

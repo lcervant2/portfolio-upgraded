@@ -1,4 +1,4 @@
-var router = require("express").Router();
+var router = require("express").Router(); //utilize the Router built into express
 var apiRoutes = require("./api");
 var viewRoutes = require("./view");
 

@@ -27,5 +27,11 @@ module.exports = {
         db.Project.create(req.body).then(function(user){
             callback(user);
         })
+    },
+    projectDeleteOne: function(projectID, callback){
+        db.Project.destroy({
+            where: {id: projectID}
+        })
+        .then(callback);
     }
 }

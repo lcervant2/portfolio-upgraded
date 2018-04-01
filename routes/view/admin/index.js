@@ -1,13 +1,15 @@
 var router = require("express").Router();
 var commonController = require("./../../../controllers/common_controller.js");
-var adminController = require("./../../../controllers/admin_controller.js")
+var adminController = require("./../../../controllers/admin_controller.js");
+var utility = require("./../../../utility/utility.js");
 
-router.get("/", function(req, res) { //if not logged in redirect to login
+router.get("/", function(req, res) { //if not logged in redirect to login    
     if(req.session.admin){
         commonController.projectSelectAll(function(result){ //call controller, pass callback
             var hbsData = {
             layout: "admin-main", //specify which layout to use
-            projects: result //bring in array
+            projects: result, //bring in array
+            message: utility.getMessage(req.query.message)
             }
             res.render("admin_home", hbsData); //render template, pass data
         });
@@ -32,6 +34,22 @@ router.get("/edit/:projectID", function(req, res) { //if not logged in redirect 
         res.redirect("/admin/login");
     }
 });
+
+router.get("/delete/:projectID", function(req, res) { //this colon means "whatever id they pass in"
+    if(req.session.admin){
+        var projectID = req.params.projectID; //grab the id from the parameters
+        adminController.projectDeleteOne(projectID, function(result){
+            console.log(result);
+            var hbsData = {
+                layout: "admin-main",
+                message: `The project was deleted sucessfully!`
+            }
+            res.redirect("/admin/?message=delete")
+        })
+    } else {
+        res.redirect("/admin/login");
+    }
+})
 
 router.post("/edit", function(req, res) { //if not logged in redirect to login
     if(req.session.admin){
