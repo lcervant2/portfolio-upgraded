@@ -20,7 +20,7 @@ router.get("/", function(req, res) { //if not logged in redirect to login
 
 router.get("/edit/:projectID", function(req, res) { //if not logged in redirect to login
     if(req.session.admin){
-        var projectID = req.params.projectID;
+        var projectID = req.params.projectID; //16 for example
         adminController.projectSelectOne(projectID, function(result){
             var hbsData = {
                 layout: "admin-main",
@@ -39,7 +39,6 @@ router.get("/delete/:projectID", function(req, res) { //this colon means "whatev
     if(req.session.admin){
         var projectID = req.params.projectID; //grab the id from the parameters
         adminController.projectDeleteOne(projectID, function(result){
-            console.log(result);
             var hbsData = {
                 layout: "admin-main",
                 message: `The project was deleted sucessfully!`
@@ -53,10 +52,12 @@ router.get("/delete/:projectID", function(req, res) { //this colon means "whatev
 
 router.post("/edit", function(req, res) { //if not logged in redirect to login
     if(req.session.admin){
-        var projectID = req.params.projectID;
-        adminController.projectSelectOne(projectID, function(result){
-            res.redirect("/admin");
-        })
+        console.log(req.body);
+        //this is work left to be done
+        // var projectID = req.params.projectID;
+        // adminController.projectSelectOne(projectID, function(result){
+        //     res.redirect("/admin");
+        // })
     } else {
         res.redirect("/admin/login");
     }

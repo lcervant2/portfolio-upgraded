@@ -1,8 +1,9 @@
-<form action="/admin/edit" method="post">
-  Title: <input type="text" name="title"><br>
-  Description: <input type="text" name="description"><br>
-  repoURL: <input type="text" name="repoURL"><br>
-  hostedURL: <input type="text" name="hostedURL"><br>
-  imageURL: <input type="text" name="imageURL"><br>
+<form action="/admin/edit" method="POST">
+
+  Title: <input type="text" name="title" value="{{project.title}}"><br>
+  Description: <input type="text" name="description" value="{{project.description}}"><br>
+  repoURL: <input type="text" name="repoURL" value="{{project.repoURL}}"><br>
+  hostedURL: <input type="text" name="hostedURL" value="{{project.hostedURL}}"><br>
+  imageURL: <input type="text" name="imageURL" value="{{project.imageURL}}"><br>
   <input type="submit" value="Submit">
 </form>
