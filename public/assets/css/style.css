@@ -10,6 +10,18 @@ body {
     font-size: 16px;
 }
 
+.disable {
+    background-color: #e4e4e4;
+    cursor: not-allowed;
+}
+
+#hidden-admin-link{
+    height: 25px;
+    width: 25px;
+    background-color: #b7b9a1;
+    cursor: copy;
+}
+
 a {
     text-decoration: none;
 }

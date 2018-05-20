@@ -33,5 +33,12 @@ module.exports = {
             where: {id: projectID}
         })
         .then(callback);
+    },
+    projectEditOne: function(projectBody, callback){
+        db.Project.update(
+        projectBody,
+        {where: {id: projectBody.id} }
+        )
+        .then(callback);
     }
 }

@@ -40,10 +40,6 @@ router.get("/delete/:projectID", function(req, res) { //this colon means "whatev
     if(req.session.admin){
         var projectID = req.params.projectID; //grab the id from the parameters
         adminController.projectDeleteOne(projectID, function(result){
-            var hbsData = {
-                layout: "admin-main",
-                message: `The project was deleted sucessfully!`
-            }
             res.redirect("/admin/?message=delete")
         })
     } else {
@@ -54,11 +50,11 @@ router.get("/delete/:projectID", function(req, res) { //this colon means "whatev
 router.post("/edit", function(req, res) { //if not logged in redirect to login
     if(req.session.admin){
         console.log(req.body);
-        //this is work left to be done
-        // var projectID = req.params.projectID;
-        // adminController.projectSelectOne(projectID, function(result){
-        //     res.redirect("/admin");
-        // })
+
+        var projectID = req.params.projectID;
+        adminController.projectEditOne(req.body, function(result){
+            res.redirect("/admin/?message=edit")
+        })
     } else {
         res.redirect("/admin/login");
     }
