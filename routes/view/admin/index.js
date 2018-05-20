@@ -9,7 +9,8 @@ router.get("/", function(req, res) { //if not logged in redirect to login
             var hbsData = {
             layout: "admin-main", //specify which layout to use
             projects: result, //bring in array
-            message: utility.getMessage(req.query.message)
+            message: utility.getMessage(req.query.message),
+            navHome: true
             }
             res.render("admin_home", hbsData); //render template, pass data
         });
@@ -80,7 +81,7 @@ router.post("/create", function(req, res) {
 });
 
 router.get("/login", function(req, res) {
-    res.render("admin_login", { layout: "admin-main"});
+    res.render("admin_login", { layout: "admin-main", navHome: true});
 });
 
 router.post("/login", function(req, res) {
